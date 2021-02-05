@@ -19,7 +19,7 @@ class PlayerTest < MiniTest::Test
     assert_instance_of Player, @player
   end
 
-  def test_player_has_lost?
+  def test_player_has_lost_starting
 
     card1 = Card.new(:diamond,'Queen',12)
     card2 = Card.new(:space, '3',3)
@@ -45,5 +45,8 @@ class PlayerTest < MiniTest::Test
     assert_equal card1, @player.deck.remove_card
   end
 
-  
+def test_case_name
+
+end
+
 end
