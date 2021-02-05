@@ -11,4 +11,5 @@ class Player
   def player_has_lost?
     @player_has_lost
   end
+
 end
