@@ -40,9 +40,10 @@ class PlayerTest < MiniTest::Test
     deck = Deck.new([card1, card2, card3])
 
     @player = Player.new('Clarisa',deck)
-    
-    require 'pry'; binding.pry
-    assert_equal card1, @player.deck.remove_card
 
+  #  require 'pry'; binding.pry
+    assert_equal card1, @player.deck.remove_card
   end
+
+  
 end
