@@ -125,6 +125,8 @@ class TurnTest < MiniTest::Test
 
     @turn = Turn.new(player1, player2)
 
+    @turn.type
+
     assert_equal player1, @turn.winner
 
   end
@@ -203,10 +205,10 @@ def test_type_war
   deck2 = Deck.new([card4, card3, card6, card7])
   player1 = Player.new("Megan", deck1)
   player2 = Player.new("Aurora", deck2)
-  turn = Turn.new(player1, player2)
+  @turn = Turn.new(player1, player2)
 
   # require 'pry'; binding.pry
-  assert_equal :war, turn.type
+  assert_equal :war, @turn.type
   end
 
   def test_type_winner_war
@@ -222,11 +224,12 @@ def test_type_war
     deck2 = Deck.new([card4, card3, card6, card7])
     player1 = Player.new("Megan", deck1)
     player2 = Player.new("Aurora", deck2)
-    turn = Turn.new(player1, player2)
+    @turn = Turn.new(player1, player2)
+    @turn.type
 
-    require 'pry'; binding.pry
 
-    assert_equal player2 , turn.winner
+
+    assert_equal player2 , @turn.winner
   end
 
 end
