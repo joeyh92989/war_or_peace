@@ -180,12 +180,12 @@ class TurnTest < MiniTest::Test
 
     @turn.pile_cards
 
-    @turn.award_spoils
+    @turn.award_spoils(player1)
+#require 'pry'; binding.pry
 
-    # require 'pry'; binding.pry
 
-    assert_equal [card2, card5, card8, card1, card3], player1.deck
-    assert_equal [card, card6, card7], player2.deck
+    assert_equal [card2, card5, card8, card1, card3], player1.deck.cards
+    assert_equal [card4, card6, card7], player2.deck.cards
 
   end
 end

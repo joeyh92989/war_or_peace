@@ -24,6 +24,14 @@ class Turn
 
   def pile_cards
     @spoils_of_war << @player1.deck.cards[0]
-    @spoils_of_war << @player1.deck.cards[2]
+    @player1.deck.remove_card
+    @spoils_of_war << @player2.deck.cards[0]
+    @player2.deck.remove_card
+  end
+
+  def award_spoils(player)
+    @spoils_of_war.each do |spoils|
+      player.deck.cards << spoils
+    end
   end
 end
