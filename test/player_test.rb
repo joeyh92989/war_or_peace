@@ -45,7 +45,7 @@ class PlayerTest < MiniTest::Test
     assert_equal card1, @player.deck.remove_card
   end
 
-def test_player_can_lose
+  def test_player_can_lose
     card1 = Card.new(:diamond, 'Queen', 12)
     card2 = Card.new(:spade, '3', 3)
     card3 = Card.new(:heart, 'Ace',14)
@@ -53,16 +53,14 @@ def test_player_can_lose
     deck= Deck.new([card1,card2,card3])
 
     @player= Player.new('Clarisa',deck)
+    deck.remove_card
+    deck.remove_card
+    deck.remove_card
 
-    assert_equal [card1,card2,card3], @player.deck
-    assert_equal false, @player.player_has_lost?
-    assert_equal card1, @player.remove_card
-    assert_equal false, @player.player_has_lost?
-    assert_equal card2, @player.remove_card
-    assert_equal false, @player.player_has_lost
-    assert_equal card3, @player.remove_card
+
+ require 'pry'; binding.pry
+
     assert_equal true, @player.player_has_lost?
-    assert_equal [], @player.deck
-end
-
+    assert_equal [], @player.deck.cards
+  end
 end
