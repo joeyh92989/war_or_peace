@@ -58,8 +58,8 @@ class PlayerTest < MiniTest::Test
     deck.remove_card
 
 
- require 'pry'; binding.pry
-
+# require 'pry'; binding.pry
+# Good feedback from Kon and Olivia, while i had more assersions they were unnecessary.
     assert_equal true, @player.player_has_lost?
     assert_equal [], @player.deck.cards
   end
