@@ -21,4 +21,9 @@ class Turn
   def winner
     winner = player1
   end
+
+  def pile_cards
+    @spoils_of_war << @player1.deck.cards[0]
+    @spoils_of_war << @player1.deck.cards[2]
+  end
 end
