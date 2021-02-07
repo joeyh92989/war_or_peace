@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require 'minitest/pride'
+require 'minitest/nyan_cat'
 require './lib/card'
 require './lib/deck'
 require './lib/player'
@@ -270,12 +270,13 @@ def test_type_war
     card7 = Card.new(:heart, '3', 3)
     card8 = Card.new(:diamond, '2', 2)
     deck1 = Deck.new([card1, card2, card5, card8])
-    deck2 = Deck.new([card6, card3, card4, card7])
+    deck2 = Deck.new([card4, card3, card6, card7])
     player1 = Player.new("Megan", deck1)
     player2 = Player.new("Aurora", deck2)
     turn = Turn.new(player1, player2)
     turn.type
     turn.pile_cards
+    turn.award_spoils(turn.winner)
 
 
     assert_equal deck1, player1.deck
