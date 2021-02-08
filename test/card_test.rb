@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require 'minitest/pride'
+require 'minitest/nyan_cat'
 require './lib/card'
 
 class CardTest < Minitest::Test

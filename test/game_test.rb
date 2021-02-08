@@ -9,8 +9,9 @@ require './lib/create_deck'
 
 class GameTest < MiniTest::Test
   def test_game_exists
-    suits = %i[Diamond Heart Spade Club]
-    values = %w[2 3 4 5 6 7 8 9 10 Jack Queen King Ace]
+
+    suits = [:Diamond, :Heart, :Spade, :Club]
+    values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace']
     ranks = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
     starting_deck = CreateDeck.new(suits, values, ranks)
     player1 = Player.new('Aurora')
@@ -21,8 +22,8 @@ class GameTest < MiniTest::Test
   end
 
   def test_game_has_attributes
-    suits = %i[Diamond Heart Spade Club]
-    values = %w[2 3 4 5 6 7 8 9 10 Jack Queen King Ace]
+    suits = [:Diamond, :Heart, :Spade, :Club]
+    values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace']
     ranks = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
     starting_deck = CreateDeck.new(suits, values, ranks)
     player1 = Player.new('Aurora')
@@ -35,8 +36,8 @@ class GameTest < MiniTest::Test
   end
 
   def test_can_distribute_cards
-    suits = %i[Diamond Heart Spade Club]
-    values = %w[2 3 4 5 6 7 8 9 10 Jack Queen King Ace]
+    suits = [:Diamond, :Heart, :Spade, :Club]
+    values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace']
     ranks = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
     starting_deck = CreateDeck.new(suits, values, ranks)
     player1 = Player.new('Aurora')

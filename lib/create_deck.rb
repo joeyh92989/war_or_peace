@@ -19,6 +19,7 @@ class CreateDeck
   end
 
   def create_starting_deck
+    # good pairing session with aiden. This is a modification of my intial each to take in suits as an array and create a has out of ranks & values to then create card objects using the suits, as from the array then using ranks as the key and values as the returned element to make a deck
     ranks_to_values = Hash[@ranks.zip(@values)]
     @suits.each do |suit|
       ranks_to_values.each do |key, value|
