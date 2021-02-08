@@ -76,8 +76,8 @@ class Turn
   end
 
   def award_spoils(winner)
-    @spoils_of_war.each do |spoils|
-      winner.deck.cards << spoils
+    if winner != "No Winner"
+      winner.deck.cards.concat(@spoils_of_war)
+      end
     end
   end
-end

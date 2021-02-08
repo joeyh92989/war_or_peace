@@ -2,7 +2,7 @@ class Player
   attr_reader :name,
               :deck
 
-  def initialize(name, deck)
+  def initialize(name, deck=nil)
     @name = name
     @deck = deck
     @player_has_lost = false
@@ -14,5 +14,9 @@ class Player
     else
       true
     end
+  end
+
+  def inherit_deck(deck)
+    @deck = deck
   end
 end

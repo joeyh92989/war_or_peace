@@ -3,32 +3,47 @@ require './lib/deck'
 require './lib/player'
 require './lib/turn'
 
+
 class Game
   attr_reader :starting_deck,
-              :deck1,
-              :deck2
-  def initialize
-    @starting_deck = []
-    @deck1 = []
-    @deck2 = []
+              :turn
+  def initialize(starting_deck, turn)
+    @starting_deck = starting_deck
+    @turn = turn
   end
 
-  def create_starting_deck
-    suits = [:Diamond, :Heart, :Spade, :Club]
-    values = ['2','3','4','5','6','7','8','9','10','Jack','Queen','King','Ace']
-    ranks = [2,3,4,5,6,7,8,9,10,11,12,13,14]
-
-    ranks_to_values = Hash[ranks.zip(values)]
-
-    suits.each do |suit|
-      ranks_to_values.each do |key, value|
-          starting_deck << Card.new(suit, value, key)
-          return starting_deck
+  def start
+    distribute_cards
+    until turn.player1.player_has_lost? == true ||turn.player2.player_has_lost? == true do
+       # require 'pry'; binding.pry
+      turn.type
+       # require 'pry'; binding.pry
+      turn.winner
+       # require 'pry'; binding.pry
+      turn.pile_cards
+      # require 'pry'; binding.pry
+      turn.award_spoils(turn.winner)
+      # require 'pry'; binding.pry
+      if turn.player1.player_has_lost? == true ||turn.player2.player_has_lost? == true
+        require 'pry'; binding.pry
+        if turn.player.player_has_lost? == true
+          puts "#{player2.name}"
+        else
+          puts "#{player1.name}"
         end
       end
     end
   end
-  def method_name
 
+  def distribute_cards
+    @starting_deck.create_starting_deck
+    #require 'pry'; binding.pry
+    @starting_deck.shuffle_deck
+    #require 'pry'; binding.pry
+    @starting_deck.split_deck
+    deck1 = Deck.new(@starting_deck.deck1)
+    @turn.player1.inherit_deck(deck1)
+    deck2 = Deck.new(@starting_deck.deck2)
+    @turn.player2.inherit_deck(deck2)
   end
 end
