@@ -2,7 +2,7 @@ class Player
   attr_reader :name,
               :deck
 
-  def initialize(name, deck=nil)
+  def initialize(name, deck = nil)
     @name = name
     @deck = deck
     @player_has_lost = false

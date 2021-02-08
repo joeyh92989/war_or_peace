@@ -76,8 +76,6 @@ class Turn
   end
 
   def award_spoils(winner)
-    if winner != "No Winner"
-      winner.deck.cards.concat(@spoils_of_war)
-      end
-    end
+    winner.deck.cards.concat(@spoils_of_war) if winner != 'No Winner'
   end
+end
