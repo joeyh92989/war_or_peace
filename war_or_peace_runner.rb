@@ -1,4 +1,4 @@
-require './lib/card'
+lsrequire './lib/card'
 require './lib/deck'
 require './lib/player'
 require './lib/turn'
